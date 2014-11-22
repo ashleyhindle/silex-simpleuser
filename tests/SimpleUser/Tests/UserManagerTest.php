@@ -115,6 +115,16 @@ class UserManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($foundUser);
     }
 
+	 public function testRemoveCustomField()
+	 {
+		  $user = $this->userManager->createUser('removeCustom@example.com', 'pass');
+		  $user->setCustomField('field1', 'foo');
+		  $user->setCustomField('field2', 'bar');
+
+		  $user->removeCustomField('field1');
+		  $this->assertNull($user->getCustomField('field1'));
+	 }
+
     public function testLoadUserByUsernamePassingEmailAddress()
     {
         $email = 'test@example.com';
