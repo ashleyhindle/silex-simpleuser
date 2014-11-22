@@ -392,6 +392,14 @@ class User implements AdvancedUserInterface, \Serializable
         $this->customFields = $customFields;
     }
 
+	 /**
+	  * @param string $customField
+	  */
+	 public function removeCustomField($customField)
+	 {
+				unset($this->customFields[$customField]);
+	 }
+
     /**
      * @return array
      */
